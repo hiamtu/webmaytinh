@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Webbanmaytinh.Models.Product>
+
+@{
+    ViewBag.Title = "SearchOption";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div style="margin-top:100px"></div>
+@using (Html.BeginForm("SearchOption", "Product"))
+{
+    <text>Từ</text>
+    <input type="number" name="min" />
+    <text>Đến</text>
+    <input type="number" name="max" />
+    <input type="submit" value="Search" />
+    <div class="section group">
+
+        @foreach (var pro in Model)
+        {
+            <div class="grid_1_of_4 images_1_of_4">
+                <img src="@Url.Content(pro.ImagePro)" />
+                <p>@Html.DisplayFor(model => pro.NamePro)</p>
+                <div class="price-details">
+                    <div class="price-number">
+                        <p>$@Html.DisplayFor(model => pro.Price)</p>
+                    </div>
+                    <div class="add-cart">
+                        <h4><a href="/ShoppingCart/AddTocart/@pro.ProductID" class="btn btn-default">Buy</a></h4>
+                    </div>
+                    <div class="add-cart">
+                        <h4><a href="/Product/Details/@pro.ProductID" class="btn btn-default">Xem</a></h4>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+
+        }
+    </div>
+}

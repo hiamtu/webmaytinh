@@ -1,0 +1,248 @@
+﻿@model Webbanmaytinh.Models.Product
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<div class="main">
+    <div class="content">
+        <div class="content_top">
+            <div class="back-links">
+                <p><a href="index.html">Home</a> >>>> <a href="#">Chi tiết sản phẩm</a></p>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="section group">
+            <div class="cont-desc span_1_of_2">
+                <div class="product-details">
+                    <div class="grid images_3_of_2">
+                        <div id="container">
+                            <div id="products_example">
+                                <div id="products">
+                                    <div class="slides_container">
+                                        <a href="#" target="_blank"> <img src="@Url.Content(Model.ImagePro)" id="previewImg" /></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="desc span_3_of_2">
+                        <h2>@Html.DisplayFor(model => model.NamePro) </h2>
+                        <p>@Html.DisplayFor(model => model.DecriptionPro)</p>
+                        <div class="price">
+                            <p>Price: <span> $@Html.DisplayFor(model => model.Price)</span></p>
+                        </div>
+                        <div class="available">
+                            <p>Available Options :</p>
+                            <ul>
+                                <li>
+                                    Color:
+                                    <select>
+                                        <option>Silver</option>
+                                        <option>Black</option>
+                                        <option>Dark Black</option>
+                                        <option>Red</option>
+                                    </select>
+                                </li>
+                                <li>
+                                    Size:<select>
+                                        <option>Large</option>
+                                        <option>Medium</option>
+                                        <option>small</option>
+                                        <option>Large</option>
+                                        <option>small</option>
+                                    </select>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="share-desc">
+                            <div class="share">
+                                <p>Share Product :</p>
+                                <ul>
+                                    <li><a href="#"><img src="~/Content/images/facebook.png" alt="" /></a></li>
+                                    <li><a href="#"><img src="~/Content/images/twitter.png" alt="" /></a></li>
+                                </ul>
+                            </div>
+                            <div class="button"><span><a href="/ShoppingCart/AddTocart/@Model.ProductID">Add to Cart</a></span></div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="product_desc">
+                    <div id="horizontalTab">
+                        <div class="resp-tabs-container">
+                            <div class="product-tags">
+                                <p>BỘ QUÀ TẶNG TRỊ GIÁ 1.600.000Đ</p>
+                                <p>+ Chuột không dây trị giá 169.000đ (MEKO001)</p>
+                                <p>+ Tấm lót chuột trị giá 49.000đ (PADM639)</p>
+                                <p>+ Bộ vệ sinh laptop trị giá 39.000đ (NUOC002)</p>
+                                <p>+ Túi chống sốc trị giá 59.000đ (TUID203)</p>
+                                <p>+ Túi đựng laptop trị giá 149.000đ (CAPD132)</p>
+                                <p>+ Đế làm mát laptop trị giá 99.000đ (DELM126/DELM245)</p>
+                                <div class="review">
+                                    <ul>
+                                        <li>Price :<a href="#"><img src="~/Content/images/price-rating.png" alt="" /></a></li>
+                                        <li>Value :<a href="#"><img src="~/Content/images/value-rating.png" alt="" /></a></li>
+                                        <li>Quality :<a href="#"><img src="~/Content/images/quality-rating.png" alt="" /></a></li>
+                                    </ul>
+
+                                    <div class="your-review">
+                                        <h3>How Do You Rate This Product?</h3>
+                                        <p>Write Your Own Review?</p>
+                                        <form>
+                                            <div>
+                                                <span><label>Nickname<span class="red">*</span></label></span>
+                                                <span><input type="text" value=""></span>
+                                            </div>
+                                            <div>
+                                                <span><label>Summary of Your Review<span class="red">*</span></label></span>
+                                                <span><input type="text" value=""></span>
+                                            </div>
+                                            <div>
+                                                <span><label>Review<span class="red">*</span></label></span>
+                                                <span><textarea> </textarea></span>
+                                            </div>
+                                            <div>
+                                                <span><input type="submit" value="SUBMIT REVIEW"></span>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                <script type="text/javascript">
+    $(document).ready(function () {
+                                $('#horizontalTab').easyResponsiveTabs({
+                                    type: 'default', //Types: default, vertical, accordion
+                                    width: 'auto', //auto or any width like 600px
+                                    fit: true   // 100% fit in a container
+                                });
+                            });</script>
+                <div class="content_bottom">
+                    <div class="heading">
+                        <h3>Related Products</h3>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="section group">
+                    <div class="grid_1_of_4 images_1_of_4">
+                        <a href="#"><img src="~/Content/images/new-pic1.jpg" alt=""></a>
+                        <div class="price" style="border:none">
+                            <div class="add-cart" style="float:none">
+                                <h4><a href="#">Add to Cart</a></h4>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                    <div class="grid_1_of_4 images_1_of_4">
+                        <a href="#"><img src="~/Content/images/new-pic2.jpg" alt=""></a>
+                        <div class="price" style="border:none">
+                            <div class="add-cart" style="float:none">
+                                <h4><a href="#">Add to Cart</a></h4>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                    <div class="grid_1_of_4 images_1_of_4">
+                        <a href="#"><img src="~/Content/images/new-pic4.jpg" alt=""></a>
+                        <div class="price" style="border:none">
+                            <div class="add-cart" style="float:none">
+                                <h4><a href="#">Add to Cart</a></h4>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                    <div class="grid_1_of_4 images_1_of_4">
+                        <img src="~/Content/images/new-pic3.jpg" alt="">
+                        <div class="price" style="border:none">
+                            <div class="add-cart" style="float:none">
+                                <h4><a href="#">Add to Cart</a></h4>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.ProductID }) |
+    @Html.ActionLink("Back to List", "Index")*@
+</p>
+
+
+
+
+
+
+@*@model Webbanmaytinh.Models.Product
+
+    @{
+        ViewBag.Title = "Details";
+        Layout = "~/Views/Shared/_Layout2.cshtml";
+    }
+
+    <h2>Details</h2>
+
+    <div>
+        <h4>Product</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.NamePro)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NamePro)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DecriptionPro)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DecriptionPro)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Price)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Price)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ImagePro)
+            </dt>
+
+            <dd>
+                <img src="@Url.Content(Model.ImagePro)" height="150" width="150" id="previewImg" />
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Quantity)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Category1.NameCate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Category1.NameCate)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ProductID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>*@

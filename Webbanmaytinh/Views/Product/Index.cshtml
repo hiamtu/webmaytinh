@@ -1,0 +1,152 @@
+﻿@*@model IEnumerable< Webbanmaytinh.Models.Product>*@
+@using Webbanmaytinh.Models;
+@using PagedList.Mvc;
+@model PagedList.PagedList<Webbanmaytinh.Models.Product>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<style>
+    #div-ds {
+        text-align: center;
+        background-color: forestgreen;
+        height: 50px;
+        border-radius: 20px 20px 0 0;
+    }
+
+    .MenuPage li {
+        display: inline;
+    }
+    
+</style>
+<div class="main">
+    <div class="content">
+        <div class="content_top">
+            <div class="heading">
+                <h3>Danh sách sản phẩm </h3>
+            </div>
+            <div class="see">
+                <p><a href="#">See all Products</a></p>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="div-search" style="text-align:center ">
+        @using (Html.BeginForm("Index", "Product", FormMethod.Get))
+        {
+
+            <b> Tìm kiếm:</b>
+            @Html.TextBox("search") <input type="submit" value="Search" />
+
+        }
+    </div>
+    <div class="container">
+        @if (Model.Count() == 0)
+        {
+            <div>
+                No match any document
+            </div>
+        }
+        else
+        {
+            <div class="section group">
+                
+                    @foreach (var pro in Model)
+                    {
+                        <div class="grid_1_of_4 images_1_of_4" >
+                            <img src="@Url.Content(pro.ImagePro)" />
+                            <p>@Html.DisplayFor(model => pro.NamePro)</p>
+                            <div class="price-details">
+                                <div class="price-number">
+                                    <p>$@Html.DisplayFor(model => pro.Price)</p>
+                                </div>
+                                <div class="add-cart">
+                                    <h4><a href="/ShoppingCart/AddTocart/@pro.ProductID" class="btn btn-default">Buy</a></h4>
+                                </div>
+                                <div class="add-cart">
+                                    <h4><a href="/Product/Details/@pro.ProductID" class="btn btn-default">Xem</a></h4>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+
+
+                    }           
+            </div>
+        }
+
+    </div>
+    Trang @(Model.PageCount<Model.PageNumber? 0 :Model.PageNumber)/@Model.PageCount
+    <div class="MenuPage">
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+    </div>
+</div>
+
+
+
+
+
+
+@*@using Webbanmaytinh.Models;
+    @using PagedList.Mvc;
+    @model PagedList.PagedList<Webbanmaytinh.Models.Product>
+    @{
+        ViewBag.Title = "Index";
+    }
+    <style>
+        #div-ds {
+            text-align: center;
+            background-color: forestgreen;
+            height: 50px;
+            border-radius: 20px 20px 0 0;
+        }
+
+        .MenuPage li {
+            display: inline;
+        }
+    </style>
+    <div id="div-ds"><h2 style="padding-top:10px;color:white">Danh Sách Sản Phẩm</h2></div>
+    <div class="div-search" style="text-align:center ">
+        @using (Html.BeginForm("Index", "Product", FormMethod.Get))
+        {
+
+            <b> Tìm kiếm:</b>
+            @Html.TextBox("search") <input type="submit" value="Search" />
+
+        }
+    </div>
+    <div class="container">
+        @if (Model.Count() == 0)
+        {
+            <div>
+                No match any document
+            </div>
+        }
+        else
+        {
+            <div class="row">
+                @foreach (var pro in Model)
+                {
+                    <div class="col-sm-12 col-sm-6 col-md-4 col-lg-3">
+                        <div class="card-pro">
+
+                            <img src="@Url.Content(pro.ImagePro)" height="150" width="150" />
+                            <p>@Html.DisplayFor(model => pro.NamePro)</p>
+                            <p>@Html.DisplayFor(model => pro.Price)</p>
+                            <a href="/ShoppingCart/AddTocart/@pro.ProductID" class="btn btn-default">Buy</a>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+
+    </div>
+    Trang @(Model.PageCount<Model.PageNumber? 0 :Model.PageNumber)/@Model.PageCount
+    <div class="MenuPage">
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+    </div>*@
+
+
+
+
